@@ -1,0 +1,41 @@
+.first{
+	color:black;
+	background:rgb(140,100,130);
+	background-height:fill;
+	font-family: 'Slabo 27px', serif;;
+	text-shadow:5px 3px 6px black;
+	letter-spacing: 1px;
+	height: 50px;
+	padding-bottom: 100px;
+	text-align: center;
+	font-size: 30px;
+
+
+
+}
+h5{
+	margin-left:20px;
+}
+.second{
+	background-color: black;
+	color: rgb(190,85,100);
+}
+.forms{
+	margin: center;
+	font-family: sans-serif;
+	color:black;
+	background-color: rgb(140,140,130);
+	text-align: center;
+	height: 100%;
+	padding-top: 100px;
+	text-align: center;
+	}
+#list{
+	padding-bottom: 20px;
+	list-style: none;
+
+}
+label{
+	display: block;
+}
+
