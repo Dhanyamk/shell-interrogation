@@ -12,7 +12,7 @@
 		public $qid; 		// question id i.e question number
 		public $user;		// ssh username
 		private $key;		// key to next level
-		public $desc;		// question description 
+		public $descr;		// question description 
 		public $hint; 		// hint related to that question
 
 		/*
@@ -33,7 +33,7 @@
             $rows=$result->fetch_array();
             $this->$user=$rows[1];
             $this->$key=$rows[2];
-            $this->$desc=$rows[3];
+            $this->$descr=$rows[3];
             $this->$hint=$rows[4];
 
             //close the database connection 
@@ -54,8 +54,8 @@
 
 			include 'dbms/dbms_imp.php';
 
-			$insert_query="INSERT INTO `ques` (`qid`, `user`, `key`, `desc`, `hint`) 
-				VALUES ('','$this->user','this->key','$this->desc','$this->hint')";
+			$insert_query="INSERT INTO `ques` (`qid`, `user`, `key`, `descr`, `hint`) 
+				VALUES ('','$this->user','this->key','$this->descr','$this->hint')";
 			
 			$mysql_query_run=$connection->query($insert_query);
 			

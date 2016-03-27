@@ -8,7 +8,7 @@
 if (isset($code) && !empty($code) && $code==$ccode) 
 {
 	// excute only if the code is correct
-	// user table is provide by databse sync.	
+	// user table is provide by databse sync from notice board table.	
 	include_once 'dbms/dbms_imp.php';
 	/*
 	$sql_user_table="CREATE TABLE IF NOT EXISTS `userdetail` (
@@ -49,33 +49,29 @@ if (isset($code) && !empty($code) && $code==$ccode)
 	}
 	*/
 
-	$sql_notice_table="CREATE TABLE IF NOT EXISTS `notice` (
-		`id` int(10) unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'hold unique id for quick referecne',
-		  `title` varchar(200) NOT NULL COMMENT 'title of notice',
-		  `cat` varchar(50) NOT NULL COMMENT 'category',
-		  `subcat` varchar(50) COMMENT 'Sub category',
-		  `tags` text NOT NULL COMMENT 'tags for search seperated by commas',
-		  `bref` mediumtext NOT NULL COMMENT 'brief description',
-		  `description` longtext NOT NULL COMMENT 'full description',
-		  `piroity` varchar(10) COMMENT 'piroity of the post',
-		  `exlink` text COMMENT 'external link if any',
-		  `img` text COMMENT 'image if any only link',
-		  `uploader` int(11) NOT NULL COMMENT 'uploader id',
-		  `dated` datetime NOT NULL UNIQUE COMMENT 'date and time on which it is posted'
-		) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1 COMMENT='main notice table';";
+	$sql_ques_table="CREATE TABLE IF NOT EXISTS `ques` (
+		`qid` int(10) unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'hold unique id for question reference',
+		  `user` varchar(200) NOT NULL COMMENT 'ssh username',
+		  `key` varchar(65) NOT NULL COMMENT 'key to next level',
+		  `title` varchar(100) COMMENT 'title of the question',
+		  `descr` longtext NOT NULL COMMENT 'description of the question',
+		  `hint` varchar(100) COMMENT 'piroity of the post'
+		) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1 COMMENT='question table';";
 	
-	$result_notice_table=$connection->query($sql_notice_table);
+	$result_ques_table=$connection->query($sql_ques_table);
 
-	if (!$result_notice_table) 
+	if (!$result_ques_table) 
 	{
-		echo "</br>Error in creating notice table  </br>".mysqli_error($connection)."</br>";
+		echo "</br>Error in creating question table  </br>".mysqli_error($connection)."</br>";
 	} 
 	else
 	{
-		echo "</br>Notice table created.</br>";
+		echo "</br>Question table created.</br>";
 	}
 
-	$sql_birthday_table="CREATE TABLE IF NOT EXISTS `bd_comments` (
+	# till here modified
+
+	$sql_birthday_table="CREATE TABLE IF NOT EXISTS `score` (
 		`bcid` int(100) unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'unique id to track comments',
 		  `userid` int(100) NOT NULL COMMENT 'user id who commented',
 		  `bd_user` int(100) NOT NULL COMMENT 'user whose birthday is',
