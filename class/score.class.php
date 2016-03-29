@@ -14,13 +14,6 @@
 		public $score; 			// user or team score
 		private $time_updated; 	// time last answer updated
 		public $plenty;			// number of wrong answer submitted
-		/*
-			no need of constructor
-		function __construct(argument)
-		{
-			# code...
-		}
-		*/
 
 		function get_score($id)			// get the score of a given $iid as $id
 		{
@@ -87,7 +80,22 @@
 		{
 			$this->iid=$uid;
 
+			$this->score=0;
+			$this->plenty=0;
 
+			$time=date('H:i:s');			// to get surrent system time
+			$date=date_create($time);		// to convert it into date formate
+
+			$this->time_updated=date_format($date,"H:i:s");
+			
+			include 'dbms/dbms_imp.php';
+
+			$insert_query="INSERT INTO `score` (`sid`, `iid`, `score`, `time_updated`,`plenty`) 
+				VALUES ('','$this->iid',$this->score','$this->time_updated','$this->plenty')";
+
+			$mysql_query_run=$connection->query($insert_query);
+			
+			mysqli_close($connection);
 		}
 	}
 ?>
