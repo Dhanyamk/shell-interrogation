@@ -9,7 +9,8 @@
  				
  				<div class=ques>
 					
- 					<h1>SHELL QUERY</h1>
+ 					<span id=hey><h1>SHELL QUERY</h1>
+					<img src="/home/student/Pictures/download.jpg" /></span>
  					<!--heads to the questions to be asked-->
  					<h3><b><i>Question</i>:<b/></h3>
  					<link href="#" >

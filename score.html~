@@ -8,7 +8,7 @@
 	<body>
 	<a href="#">BACK</a>
 	<a href="#">LOGOUT</a>
-		<h2>TOTAL NO. OF PLAYERS:</h2><link href="#" />
+		<h2>TOTAL NO. OF PLAYERS:</h2>
 		<fieldset id=sco>
 			<legend><h1><i>LEADERBOARD</i></h1></legend>
 			<table style="width:100%" border-style="ridge">

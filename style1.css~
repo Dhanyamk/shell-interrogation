@@ -43,7 +43,7 @@ label{
 img{ width:150px;
 	height:150px;
 padding-bottom:30px;
-margin-right:700px;
+margin-right:600px;
 }
 p{margin-top:-230px;
 }

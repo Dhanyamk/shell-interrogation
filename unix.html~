@@ -28,7 +28,6 @@
 						<ul id =list>
 							
 					<form action="#" method="get"></form>
-						<li>THE GAME BEGINS HERE...!!</li>
 						<li><label for"name"><b>ENTER NAME:</b></label>
 						<input id="name" name="name"/></li>
 						<li><label for="usn"><b>ENTER USN:</b></label>
