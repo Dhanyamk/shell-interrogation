@@ -69,46 +69,46 @@ if (isset($code) && !empty($code) && $code==$ccode)
 		echo "</br>Question table created.</br>";
 	}
 
-	# till here modified
-
-	$sql_birthday_table="CREATE TABLE IF NOT EXISTS `score` (
-		`bcid` int(100) unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'unique id to track comments',
-		  `userid` int(100) NOT NULL COMMENT 'user id who commented',
-		  `bd_user` int(100) NOT NULL COMMENT 'user whose birthday is',
-		  `comment` text NOT NULL COMMENT 'comments',
-		  `date` date NOT NULL COMMENT 'date on which it is commented',
-		  `timed` time NOT NULL COMMENT 'time on which it is commented'
-		) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1 COMMENT='birthday comment table';";
 	
-	$result_birthday_table=$connection->query($sql_birthday_table);
 
-	if (!$result_birthday_table) 
+	$sql_score_table="CREATE TABLE IF NOT EXISTS `score` (
+		`sid` int(100) unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'unique id to track score',
+		  `iid` int(100) NOT NULL COMMENT 'user / team id ',
+		  `score` int(100) NOT NULL COMMENT 'score of the user / team',
+		  `time_updated` time NOT NULL COMMENT 'time on which it is last updated',
+		  `plenty` int(100) NOT NULL COMMENT 'plenty i.e wrong submitions'
+		) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1 COMMENT='score table';";
+	
+
+	$result_score_table=$connection->query($sql_score_table);
+
+	if (!$result_score_table) 
 	{
-		echo "</br>Error in creating birthday table  </br>".mysqli_error($connection)."</br>";
+		echo "</br>Error in creating score table  </br>".mysqli_error($connection)."</br>";
 	} 
 	else
 	{
-		echo "</br>Birthday table created.</br>";
+		echo "</br>Score table created.</br>";
 	}
 
-	$sql_comment_table="CREATE TABLE IF NOT EXISTS `comments` (
-		`cid` int(100) unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'unique id to track comments',
-		  `userid` int(100) NOT NULL COMMENT 'user id who commented',
-		  `nid` int(100) NOT NULL COMMENT 'notice id on which its commented',
-		  `comment` text NOT NULL COMMENT 'comments',
-		  `date` date NOT NULL COMMENT 'date on which it is commented',
-		  `timed` time NOT NULL COMMENT 'time on which it is commented'
-		) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1 COMMENT='birthday comment table';";
-	
-	$result_comment_table=$connection->query($sql_comment_table);
+	# till here modified
 
-	if (!$result_comment_table) 
+	$sql_time_table="CREATE TABLE IF NOT EXISTS `etime` (
+		`tid` int(100) unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'unique id to track time',
+		  `uid` int(100) NOT NULL COMMENT 'user / team id',
+		  `start` time NOT NULL COMMENT 'time on which the user / team logged in',
+		  `end` time NOT NULL COMMENT 'end time for that team'
+		) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1 COMMENT='event time table';";
+	
+	$result_time_table=$connection->query($sql_time_table);
+
+	if (!$result_time_table) 
 	{
-		echo "</br>Error in creating comment table  </br>".mysqli_error($connection)."</br>";
+		echo "</br>Error in creating time table  </br>".mysqli_error($connection)."</br>";
 	} 
 	else
 	{
-		echo "</br>comment table created.</br>";
+		echo "</br>time table created.</br>";
 	}
 
 
