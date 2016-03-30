@@ -10,6 +10,7 @@ include 'dbms/dbms_imp.php';
 include_once 'functions/islogin.func.php';
 include_once 'functions/validate.func.php';
 include_once 'functions/netutralize.func.php';
+include_once 'function/refresh.func.php';
 
 
 spl_autoload_register(function ($class) 
