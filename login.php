@@ -17,7 +17,7 @@
       <form class="form-signin">
         <h2 class="form-signin-heading">Please Login in</h2>
         <label for="inputEmail" class="sr-only">USN</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input type="email" id="inputEmail" class="form-control" placeholder="USN" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <!-- not required
