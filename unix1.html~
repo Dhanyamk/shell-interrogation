@@ -14,6 +14,13 @@
 	 <img src="/Dhanyamk/shell-interrogation/blob/master/image/images.png" class="img-rounded" width="304" height="236">
   <p>TEST YOUR KNOWLEDGE HERE!!</p>
   <p class="bg-failure">Welcome to SHELL-INTERROGATION</p>
+	<h2>Game rules:</h2>
+<ol class="list-group">
+  <li class="list-group-item list-group-item-success"></li>
+  <li class="list-group-item list-group-item-info"></li>
+  <li class="list-group-item list-group-item-warning"></li>
+  <li class="list-group-item list-group-item-danger"></li>
+</ol>
   <form class="form-horizontal">
     <input type="name" class="form-control" size="50" placeholder="ENTER NAME">
     <input type="password" class="form-control" size="50" placeholder="Enter USN">
