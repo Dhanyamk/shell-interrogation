@@ -5,12 +5,13 @@ ini_set('date.timezone','Asia/Kolkata');
 
 date_default_timezone_set('Asia/Kolkata');
 
-include 'dbms/dbms_imp.php';
+//include 'dbms/dbms_imp.php';
 //include_once "functions/";
 include_once 'functions/islogin.func.php';
 include_once 'functions/validate.func.php';
 include_once 'functions/netutralize.func.php';
-include_once 'function/refresh.func.php';
+include_once 'functions/refresh.func.php';
+include_once 'functions/timer.func.php';
 
 
 spl_autoload_register(function ($class) 

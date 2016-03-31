@@ -8,9 +8,9 @@
 if (isset($code) && !empty($code) && $code==$ccode) 
 {
 	// excute only if the code is correct
-	// user table is provide by databse sync from notice board table.	
 	include_once 'dbms/dbms_imp.php';
 	/*
+	// user table is provide by databse sync from notice board table.	
 	$sql_user_table="CREATE TABLE IF NOT EXISTS `userdetail` (
 		`uniqueid` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'unique id of the user for easy reference',
 		  `usn` varchar(11) NOT NULL UNIQUE COMMENT 'usn for login to post',
@@ -91,7 +91,6 @@ if (isset($code) && !empty($code) && $code==$ccode)
 		echo "</br>Score table created.</br>";
 	}
 
-	# till here modified
 
 	$sql_time_table="CREATE TABLE IF NOT EXISTS `etime` (
 		`tid` int(100) unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'unique id to track time',
@@ -111,6 +110,22 @@ if (isset($code) && !empty($code) && $code==$ccode)
 		echo "</br>time table created.</br>";
 	}
 
+	$sql_team_table="CREATE TABLE IF NOT EXISTS `team` (
+		`tid` int(100) unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'unique id to track team',
+		  `uid1` int(100) NOT NULL COMMENT 'user1',
+		  `uid2` int(100) NOT NULL COMMENT 'user2'
+		) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1 COMMENT='team table';";
+
+	# till here modified
+	$result_team_table=$connection->query($sql_team_table);
+	if (!$result_team_table) 
+	{
+		echo "</br>Error in creating team table  </br>".mysqli_error($connection)."</br>";
+	} 
+	else
+	{
+		echo "</br>time team created.</br>";
+	}	
 
 } 
 else

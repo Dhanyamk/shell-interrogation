@@ -35,7 +35,7 @@ if(!$mysql_sdb)
 		$query_result=$connection->query($sql_db_create);
 		if (!$query_result) 
 		{
-			echo "Please check the configuration  of the server.";
+			echo "Please check the configuration of the server.";
 		}
 		else
 		{

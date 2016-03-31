@@ -1,5 +1,6 @@
 <?php
 	//login.php
+  require 'core.php';
 
 	$title = "Login";
 	# loading all display modules
