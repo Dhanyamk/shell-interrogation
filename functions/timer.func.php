@@ -6,7 +6,7 @@
 	
 	?>
 
-	<style type="text/css">
+	<!--<style type="text/css">
     #holder {
         position: relative;   /* leave as "relative" to keep timer centered on your 
                                  page, or change to "absolute" then change the 
@@ -72,7 +72,7 @@
         border-radius: 20px;
         box-shadow: 0 0 10px #000000; /* change to "none" if you don't want a shadow */
     }
-    </style>
+    </style>-->
 
     <script type="text/javascript">
     /*
