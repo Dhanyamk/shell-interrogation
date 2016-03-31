@@ -19,6 +19,9 @@
  font-family:serif;
  font-weight:bold;
 }
+h1{
+ text-shadow:10px 5px 5px solid black;
+}
 </style>
 
 	

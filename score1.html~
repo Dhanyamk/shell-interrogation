@@ -16,8 +16,8 @@
 }
 </style>
 <style>
-.container-fluid{
-font-family:'Pacifico',cursive;
+.pull-right{
+text-align:center;
 }
 </style>
 <div class="container-fluid">
