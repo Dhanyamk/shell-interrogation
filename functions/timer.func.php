@@ -6,7 +6,7 @@
 	
 	?>
 
-	<!--<style type="text/css">
+	<style type="text/css">
     #holder {
         position: relative;   /* leave as "relative" to keep timer centered on your 
                                  page, or change to "absolute" then change the 
@@ -22,7 +22,7 @@
     }
 
     #title, #note {
-        color: lime;           /* this determines the color of the DAYS, HRS, MIN, SEC 
+        color: #52C6FF;           /* this determines the color of the DAYS, HRS, MIN, SEC 
                                   labels under the timer and the color of the note 
                                   that displays after reaching the target date and 
                                   time; if using the blue digital images, change to 
@@ -72,7 +72,7 @@
         border-radius: 20px;
         box-shadow: 0 0 10px #000000; /* change to "none" if you don't want a shadow */
     }
-    </style>-->
+    </style>
 
     <script type="text/javascript">
     /*
