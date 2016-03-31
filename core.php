@@ -11,7 +11,7 @@ include_once 'functions/islogin.func.php';
 include_once 'functions/validate.func.php';
 include_once 'functions/netutralize.func.php';
 include_once 'functions/refresh.func.php';
-include_once 'functions/timer.func.php';
+include_once 'functions/timer1.func.php';
 
 
 spl_autoload_register(function ($class) 

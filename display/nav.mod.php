@@ -38,8 +38,9 @@
               </ul>
             </li>
           </ul>
+         
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><?php timer(10,00);?></a></li>
+            <li><a href="#"><?php timer(00,00,10);?></a></li>
             <li><a href="#">timer</a></li>
             <li class="active"><a href="#">other things <span class="sr-only">(current)</span></a></li>
           </ul>
