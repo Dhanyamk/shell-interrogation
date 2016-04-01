@@ -26,7 +26,7 @@
             <li><a href="#">Questions</a></li>
             <li><a href="#">Leaderboards</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Questions <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <!--<li><a href="#">Action</a></li>
                 <li><a href="#">Another action</a></li>
@@ -40,7 +40,8 @@
           </ul>
          
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><?php timer(00,00,10);?></a></li>
+            <li><a href="#"><?php timer(00,00,10,"newtime",0);?></a></li>
+            <!--<li id="time"><script>disptime();</script></li>-->
             <li><a href="#">timer</a></li>
             <li class="active"><a href="#">other things <span class="sr-only">(current)</span></a></li>
           </ul>

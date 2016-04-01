@@ -14,6 +14,7 @@ include_once 'functions/refresh.func.php';
 include_once 'functions/timer1.func.php';
 
 
+
 spl_autoload_register(function ($class) 
 {
     include 'class/'.$class.'.class.php';
@@ -33,4 +34,24 @@ $http_referer=@$_SERVER['HTTP_REFERER'];
 	//echo $current_file;
 
 	$userid=@$_SESSION['user'];
+
+// time for the event defination 
+
+	//Start time of the contest in the format 'YYYY-MM-DD HH:MM:SS'
+	$startTime = date_create('2016-04-01 10:20:00');
+
+	//End time of the contest in the format 'YYYY-MM-DD HH:MM:SS'
+	$endTime = date_create('2016-04-01 10:30:00');
+
+	//Interval between refreshes of the leaderboard (milliseconds)
+	$getLeaderInterval = 10000;
+
+	//You can use the variable $running to determine if the contest is running or not
+	$time = date_create();
+	$running = false;
+	if($time >= $startTime && $time <= $endTime)
+		$running = true;
+
+	// trigerring the timer.php
+	//include_once 'timer.php';
 ?>
