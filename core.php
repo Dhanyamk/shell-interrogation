@@ -33,7 +33,7 @@ $http_referer=@$_SERVER['HTTP_REFERER'];
 	
 	//echo $current_file;
 
-	$userid=@$_SESSION['user'];
+	$teamid=@$_SESSION['team'];
 
 // time for the event defination 
 

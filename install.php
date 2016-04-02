@@ -112,11 +112,12 @@ if (isset($code) && !empty($code) && $code==$ccode)
 
 	$sql_team_table="CREATE TABLE IF NOT EXISTS `team` (
 		`tid` int(100) unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'unique id to track team',
+		  `tname` varchar(40) NOT NULL COMMENT 'team name',
+		  `tpwd` varchar(65) NOT NULL COMMENT 'password of the team',
 		  `uid1` int(100) NOT NULL COMMENT 'user1',
 		  `uid2` int(100) NOT NULL COMMENT 'user2'
 		) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1 COMMENT='team table';";
 
-	# till here modified
 	$result_team_table=$connection->query($sql_team_table);
 	if (!$result_team_table) 
 	{
@@ -127,6 +128,7 @@ if (isset($code) && !empty($code) && $code==$ccode)
 		echo "</br>time team created.</br>";
 	}	
 
+	# till here modified
 } 
 else
 {

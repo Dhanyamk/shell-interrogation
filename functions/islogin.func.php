@@ -6,7 +6,7 @@
 
 	function islogin()
 	{
-		if (isset($_SESSION['user']) && !empty($_SESSION['user']))
+		if (isset($_SESSION['team']) && !empty($_SESSION['team']))
 		{
 			return true;
 		} 

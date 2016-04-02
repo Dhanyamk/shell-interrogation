@@ -15,15 +15,17 @@
 		public $user1;		// user class var to hold user1 data
 		public $user2; 		// user class var to hold user2 data
 	
-		function add_team($name,$pwd) 	  		// to add team to database
+		function add_team($name,$pwd,$id1,$id2) 	  		// to add team to database
 		{
 			include 'dbms/dbms_imp.php';
 
 			$this->tname=$name;
 			$this->tpwd=md5($pwd);
+			$this->uid1=$id1;
+			$this->uid2=$id2;
 
 			$insert_query="INSERT INTO `team` (`tid`, `tname`, `tpwd`, `uid1`, `uid2`) 
-				VALUES ('','$this->tname','this->tpwd','$this->uid1','$this->uid2')";
+				VALUES ('','$this->tname','$this->tpwd','$this->uid1','$this->uid2')";
 			
 			$mysql_query_run=$connection->query($insert_query);
 			
@@ -55,7 +57,7 @@
 			$user1= new user;
 			$user1->get_user($this->uid1);
 			$user2= new user;
-			$user2->get_user($this->uid2)
+			$user2->get_user($this->uid2);
 		}
 
 		function team_login($name,$pwd)

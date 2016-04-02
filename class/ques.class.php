@@ -31,10 +31,10 @@
 			$this->qid=$qid;
 			$result=$connection->query("SELECT * FROM `ques` WHERE `qid`='$qid'");
             $rows=$result->fetch_array();
-            $this->$user=$rows[1];
-            $this->$key=$rows[2];
-            $this->$descr=$rows[3];
-            $this->$hint=$rows[4];
+            $this->user=$rows[1];
+            $this->key=$rows[2];
+            $this->descr=$rows[3];
+            $this->hint=$rows[4];
 
             //close the database connection 
             mysqli_close($connection);

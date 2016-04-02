@@ -22,7 +22,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="index.php">Home</a></li>
             <!--<li><a href="#">Questions</a></li>-->
             <li><a href="#">Leaderboards</a></li>
             <li class="dropdown">
@@ -40,10 +40,10 @@
           </ul>
          
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><?php timer(00,00,10,"newtime",0);?></a></li>
             <!--<li id="time"><script>disptime();</script></li>-->
-            <li><a href="#">timer</a></li>
-            <li class="active"><a href="#">other things <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Notification</a></li>
+            <li><a href="#"><?php timer(00,00,10,"newtime",0);?></a></li>
+            <li class="active"><a href="#">Quit the game<span class="sr-only">(current)</span></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

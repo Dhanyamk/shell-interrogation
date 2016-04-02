@@ -19,12 +19,12 @@
 				include 'dbms/dbms_imp.php';
 				$query_run=$connection-> query("SELECT `uniqueid` FROM `userdetail` WHERE `usn`='$usn'");	
 				mysqli_close($connection);
-				$row=$query_run->fetch_array();
+				//$row=$query_run->fetch_array();
 
 				//$user= new user;
-				$user=$row[0];
-				$_SESSION['user']=$user;
-				$GLOBALS[$user]=$_SESSION['user'];
+				//$user=$row[0];
+				//$_SESSION['user']=$user;
+				//$GLOBALS[$user]=$_SESSION['user'];
 
 				//redirect to userpage
 				//$current_file=$_SERVER['SCRIPT_NAME'];
@@ -37,7 +37,16 @@
 				//echo "usn and password combination is not correct";
 				return false;
 			}
-			
+		}
+
+		function get_userid($usn)
+		{
+			include 'dbms/dbms_imp.php';
+			$query_run=$connection-> query("SELECT `uniqueid` FROM `userdetail` WHERE `usn`='$usn'");	
+			mysqli_close($connection);
+			$row=$query_run->fetch_array();
+
+			return $row[0];
 		}
 	}
 ?>
