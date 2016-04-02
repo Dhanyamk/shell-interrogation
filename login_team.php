@@ -14,17 +14,23 @@
   $name=@$_POST['tname'];
   $pwd=@$_POST['tpwd'];
 
+  if ($debug) 
+  {
+    var_dump($name);
+    var_dump($pwd);
+  }
+
   if (isset($name) && isset($pwd)) 
   {
     if (!empty($name) && !empty($pwd)) 
     {
       include 'dbms/dbms_imp.php';
-      $usn1=netutralize($usn1,$connection);
+      $name=netutralize($name,$connection);
       mysqli_close($connection);
       $ateam=new team;
       if($ateam->team_login($name,$pwd))
       {
-        header('location:'.'#');
+        header('location:'.'lp.php');
       }
       else
       {
@@ -48,6 +54,10 @@
           {
             echo "<h2>Please Login to Continue</h2>";
           } 
+          elseif ($flag==2) 
+          {
+            
+          }
         ?>
       </div>
       <form class="form-signin" action="<?php echo $current_file; ?>" method="POST" enctype="multipart/form-data" target="">

@@ -60,8 +60,9 @@
 			$user2->get_user($this->uid2);
 		}
 
-		function team_login($name,$pwd)
+		function team_login($name,$pwd1)
 		{
+			$pwd=md5($pwd1);
 			include 'dbms/dbms_imp.php';
 			$query_run=$connection-> query("SELECT `tid`,`tpwd` FROM `team` WHERE `tname`='$name'");	
 			mysqli_close($connection);
