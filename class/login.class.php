@@ -11,7 +11,7 @@
 		// including password trait methods
 		use password;
 
-		function __construct($usn,$password)
+		function get_user($usn,$password)
 		{
 			// add a sentizer script to neutralize the var
 			if ($this->password_hash_comp($usn,$password)) 
@@ -27,13 +27,15 @@
 				$GLOBALS[$user]=$_SESSION['user'];
 
 				//redirect to userpage
-				$current_file=$_SERVER['SCRIPT_NAME'];
-				header('location:'.$current_file); 	//to redirect to current page untill userpage is not made
-				echo "Logged in";
+				//$current_file=$_SERVER['SCRIPT_NAME'];
+				//header('location:'.$current_file); 	//to redirect to current page untill userpage is not made
+				//echo "Logged in";
+				return true;
 			} 
 			else 
 			{
-				echo "usn and password combination is not correct";
+				//echo "usn and password combination is not correct";
+				return false;
 			}
 			
 		}
