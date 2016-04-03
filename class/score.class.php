@@ -76,7 +76,7 @@
             mysqli_close($connection);
 		}
 
-		function add_entry($uid)
+		function add_entry_score($uid)
 		{
 			$this->iid=$uid;
 

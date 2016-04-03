@@ -2,7 +2,7 @@
 	// This file contains the details reqoired to connect to the server so edit this file with utmost care 
 $mysql_host="127.0.0.1";		// host of the db server
 $mysql_username="root";			// usernmae of the user who have full access to the db server
-$mysql_password="";				// password to access that server 
+$mysql_password="toor";				// password to access that server 
 $mysql_db="shell";				// database	
 $connection=@mysqli_connect($mysql_host,$mysql_username,$mysql_password);
 if(!$connection)
@@ -35,7 +35,7 @@ if(!$mysql_sdb)
 		$query_result=$connection->query($sql_db_create);
 		if (!$query_result) 
 		{
-			echo "Please check the configuration  of the server.";
+			echo "Please check the configuration of the server.";
 		}
 		else
 		{

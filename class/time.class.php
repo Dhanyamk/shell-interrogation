@@ -8,10 +8,10 @@
 	{
 		private $tid;		// unique id of table
 		private $uid;		// user or team id
-		private $s_time		// start time
-		private $e_time 	// end time
+		public $s_time;		// start time
+		public $e_time;		// end time
 		
-		function add_entry($uid,$add_time)	// function to add the entry to the database
+		function add_entry_time($uid,$add_time)	// function to add the entry to the database
 		{
 			$this->uid=$uid;
 			
