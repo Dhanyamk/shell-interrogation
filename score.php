@@ -46,8 +46,8 @@ if (islogin() || $debug)
      <table class="table table-striped">
       <thead>
         <tr>
-          <th>GROUP NAME:</th>
-          <th>SHELL COINS:</th>
+          <th>Team Name:</th>
+          <th>Total Score:</th>
         </tr>
       </thead>
       <tbody>
