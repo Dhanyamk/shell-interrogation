@@ -1,11 +1,11 @@
 <?php
 	// refresh.func.php
 
-	function refresa($sec)
+	function refresh($sec)
 	{
 		$page = $_SERVER['PHP_SELF'];
-		
-		if (!(isset($sec) && !empty($sec))) 
+
+		if (!(isset($sec) && !empty($sec)))
 		{
 			$sec = "10";
 		}

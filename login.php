@@ -22,7 +22,7 @@
   $uid1=0;
   $uid2=0;
 
-  if ($debug) 
+  if ($debug)
   {
     var_dump($usn1);
     var_dump($pwd1);
@@ -32,9 +32,9 @@
     var_dump($tpwd);
   }
 
-  if (isset($usn1) && isset($pwd1)) 
+  if (isset($usn1) && isset($pwd1))
   {
-    if (!empty($usn1) && !empty($pwd1)) 
+    if (!empty($usn1) && !empty($pwd1))
     {
       include 'dbms/dbms_imp.php';
       $usn1=netutralize($usn1,$connection);
@@ -42,16 +42,16 @@
       $login_user1= new login;
       $user1=$login_user1->get_user($usn1,$pwd1);
       $uid1=$login_user1->get_userid($usn1);
-    } 
-    else 
+    }
+    else
     {
       echo "Player 1 details are required";
     }
   }
 
-  if (isset($usn2) && isset($pwd2)) 
+  if (isset($usn2) && isset($pwd2))
   {
-    if (!empty($usn2) && !empty($pwd2)) 
+    if (!empty($usn2) && !empty($pwd2))
     {
       include 'dbms/dbms_imp.php';
       $usn2=netutralize($usn2,$connection);
@@ -59,21 +59,21 @@
       $login_user2= new login;
       $user2=$login_user2->get_user($usn2,$pwd2);
       $uid2=$login_user2->get_userid($usn2);
-    } 
-    else 
+    }
+    else
     {
       echo "Player 2 details are required";
     }
   }
 
-  if ($user1 && $user2) 
+  if ($user1 && $user2)
   {
     include 'dbms/dbms_imp.php';
     $tname=netutralize($tname,$connection);
     mysqli_close($connection);
-    $team= new team;
-    $sucess=$team->add_team($tname,$tpwd,$uid1,$uid2);
-    if ($sucess) 
+    $team = new team;
+    $sucess = $team->add_team($tname,$tpwd,$uid1,$uid2);
+    if ($sucess)
     {
       header('location:'.'login_team.php?msg=1');
     }
@@ -81,7 +81,7 @@
 
 	?>
 	<link href="display/signin.css" rel="stylesheet">
-	
+
 	<div class="jumbotron text-center">
    <h1>SHELL QUERY</h1>
 

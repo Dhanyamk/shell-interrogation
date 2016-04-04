@@ -9,12 +9,12 @@
 	class score extends team
 	{
 
-		public $sid;			// primary index score id
-		public $iid;			// userid or teamid
-		public $score; 			// user or team score
+		public $sid;						// primary index score id
+		public $iid;						// userid or teamid
+		public $score; 					// user or team score
 		private $time_updated; 	// time last answer updated
-		public $plenty;			// number of wrong answer submitted
-		public $tscore;			// total effective score of the user
+		public $plenty;					// number of wrong answer submitted
+		public $tscore;					// total effective score of the user
 
 		function get_score($id)			// get the score of a given $iid as $id
 		{
@@ -30,7 +30,7 @@
             $this->score=$rows[2];
             $this->time_updated=$rows[3];
             $this->plenty=$rows[4];
-						$this->$tscore=$rows[5];
+						$this->tscore=$rows[5];
 
             //close the database connection
             mysqli_close($connection);
@@ -40,7 +40,7 @@
 		{
 			get_score($uid);
 
-			$time=date('H:i:s');			// to get surrent system time
+			$time=date('H:i:s');				// to get surrent system time
 			$date=date_create($time);		// to convert it into date formate
 
 			$this->time_updated=date_format($date,"H:i:s");
@@ -55,14 +55,14 @@
 			$mysql_query_run=$connection->query($update_query);
 
 			//close the database connection
-            mysqli_close($connection);
+      mysqli_close($connection);
 		}
 
 		function correct_submition($uid)
 		{
 			get_score($uid);
 
-			$time=date('H:i:s');			// to get surrent system time
+			$time=date('H:i:s');				// to get surrent system time
 			$date=date_create($time);		// to convert it into date formate
 
 			$this->time_updated=date_format($date,"H:i:s");
@@ -99,8 +99,14 @@
 				VALUES ('','$this->iid',$this->score','$this->time_updated','$this->plenty')";
 
 			$mysql_query_run=$connection->query($insert_query);
-
 			mysqli_close($connection);
+			if(!$mysql_query_run)
+			{
+				// error occurs
+				echo "<br>Error in creating team".mysqli_error($connection);
+				return false;
+			}
+			return true;
 		}
 	}
 ?>

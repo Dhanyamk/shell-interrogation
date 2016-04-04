@@ -96,8 +96,8 @@ if (isset($code) && !empty($code) && $code==$ccode)
 	$sql_time_table="CREATE TABLE IF NOT EXISTS `etime` (
 		`tid` int(100) unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'unique id to track time',
 		  `uid` int(100) NOT NULL COMMENT 'user / team id',
-		  `start` time NOT NULL COMMENT 'time on which the user / team logged in',
-		  `end` time NOT NULL COMMENT 'end time for that team'
+		  `start` datetime NOT NULL COMMENT 'time on which the user / team logged in',
+		  `end` datetime NOT NULL COMMENT 'end time for that team'
 		) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1 COMMENT='event time table';";
 
 	$result_time_table=$connection->query($sql_time_table);
