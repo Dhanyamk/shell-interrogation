@@ -27,8 +27,17 @@ if (islogin() || $debug)
   </style>-->
   <link href="display/signin.css" rel="stylesheet">
   <div class="container">
+    <?php
+      // code to access the database to get scores
+      include 'dbms/dbms_imp.php';
+      $query="SELECT `tname`,`tscore` FROM `team`,`score` WHERE team.tid=score.iid ORDER BY `tscore` DESC, `time_updated` ASC";
+      $mysql_query_run=$connection->query($query);
+      $count=$mysql_query_run->num_rows;
+      mysqli_close($connection);
+
+    ?>
     <h1>LEADERBOARD:</h1>
-    <div class="pull-right"><h3>Total number of teams:</h3></div>
+    <div class="pull-right"><h3>Total number of teams:<?php echo "$count"; ?></h3></div>
 
     <div class="btn-group">
     <a href="#" class="btn btn-info" role="button">Back</a>
@@ -42,10 +51,15 @@ if (islogin() || $debug)
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>link here</td>
-          <td>link here</td>
-        </tr>
+      <?php
+
+        while ($rows=$mysql_query_run->fetch_array())
+        {
+        ?>
+        <tr><td><?php echo "$rows[0]";?></td><td><?php echo "$rows[1]";?></td></tr>
+        <?php
+        }
+      ?>
       </tbody>
     </table>
   </div>
