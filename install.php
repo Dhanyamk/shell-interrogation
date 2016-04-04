@@ -1,16 +1,16 @@
 <?php
-	// query to create database 
+	// query to create database
 
 	$code=$_POST['code'];
 
 	$ccode='10000'; 	//predefined security key set to somthing complex so it cant be guess easily
 
-if (isset($code) && !empty($code) && $code==$ccode) 
+if (isset($code) && !empty($code) && $code==$ccode)
 {
 	// excute only if the code is correct
 	include_once 'dbms/dbms_imp.php';
 	/*
-	// user table is provide by databse sync from notice board table.	
+	// user table is provide by databse sync from notice board table.
 	$sql_user_table="CREATE TABLE IF NOT EXISTS `userdetail` (
 		`uniqueid` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'unique id of the user for easy reference',
 		  `usn` varchar(11) NOT NULL UNIQUE COMMENT 'usn for login to post',
@@ -25,10 +25,10 @@ if (isset($code) && !empty($code) && $code==$ccode)
 
 	$result_user_table=$connection->query($sql_user_table);
 
-	if (!$result_user_table) 
+	if (!$result_user_table)
 	{
 		echo "</br>Error in creating user table  </br>".mysqli_error($connection)."</br>";
-	} 
+	}
 	else
 	{
 		echo "</br>User table created.</br>";
@@ -39,10 +39,10 @@ if (isset($code) && !empty($code) && $code==$ccode)
 
 	$result_user_table_update=$connection->query($sql_user_table_alter1);
 
-	if (!$result_user_table_update) 
+	if (!$result_user_table_update)
 	{
 		echo "</br>Error in creating user table  </br>".mysqli_error($connection)."</br>";
-	} 
+	}
 	else
 	{
 		echo "</br>User table updated</br>";
@@ -57,35 +57,36 @@ if (isset($code) && !empty($code) && $code==$ccode)
 		  `descr` longtext NOT NULL COMMENT 'description of the question',
 		  `hint` varchar(100) COMMENT 'piroity of the post'
 		) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1 COMMENT='question table';";
-	
+
 	$result_ques_table=$connection->query($sql_ques_table);
 
-	if (!$result_ques_table) 
+	if (!$result_ques_table)
 	{
 		echo "</br>Error in creating question table  </br>".mysqli_error($connection)."</br>";
-	} 
+	}
 	else
 	{
 		echo "</br>Question table created.</br>";
 	}
 
-	
+
 
 	$sql_score_table="CREATE TABLE IF NOT EXISTS `score` (
 		`sid` int(100) unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'unique id to track score',
 		  `iid` int(100) NOT NULL COMMENT 'user / team id ',
 		  `score` int(100) NOT NULL COMMENT 'score of the user / team',
 		  `time_updated` time NOT NULL COMMENT 'time on which it is last updated',
-		  `plenty` int(100) NOT NULL COMMENT 'plenty i.e wrong submitions'
+		  `plenty` int(100) NOT NULL COMMENT 'plenty i.e wrong submitions',
+			`tscore` int(100) NOT NULL COMMENT 'total score of the team or user'
 		) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1 COMMENT='score table';";
-	
+
 
 	$result_score_table=$connection->query($sql_score_table);
 
-	if (!$result_score_table) 
+	if (!$result_score_table)
 	{
 		echo "</br>Error in creating score table  </br>".mysqli_error($connection)."</br>";
-	} 
+	}
 	else
 	{
 		echo "</br>Score table created.</br>";
@@ -98,13 +99,13 @@ if (isset($code) && !empty($code) && $code==$ccode)
 		  `start` time NOT NULL COMMENT 'time on which the user / team logged in',
 		  `end` time NOT NULL COMMENT 'end time for that team'
 		) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1 COMMENT='event time table';";
-	
+
 	$result_time_table=$connection->query($sql_time_table);
 
-	if (!$result_time_table) 
+	if (!$result_time_table)
 	{
 		echo "</br>Error in creating time table  </br>".mysqli_error($connection)."</br>";
-	} 
+	}
 	else
 	{
 		echo "</br>time table created.</br>";
@@ -119,17 +120,17 @@ if (isset($code) && !empty($code) && $code==$ccode)
 		) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1 COMMENT='team table';";
 
 	$result_team_table=$connection->query($sql_team_table);
-	if (!$result_team_table) 
+	if (!$result_team_table)
 	{
 		echo "</br>Error in creating team table  </br>".mysqli_error($connection)."</br>";
-	} 
+	}
 	else
 	{
 		echo "</br>time team created.</br>";
-	}	
+	}
 
 	# till here modified
-} 
+}
 else
 {
 	echo "This is a simple script to config your database to automatically for this website.</br>
