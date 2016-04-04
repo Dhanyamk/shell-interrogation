@@ -30,7 +30,7 @@ if (islogin() || $debug)
     <?php
       // code to access the database to get scores
       include 'dbms/dbms_imp.php';
-      $query="SELECT `tname`,`tscore` FROM `team`,`score` WHERE team.tid=score.iid ORDER BY `tscore` DESC, `time_updated` ASC";
+      $query="SELECT `tid`,`tname`,`tscore` FROM `team`,`score` WHERE team.tid=score.iid ORDER BY `tscore` DESC, `time_updated` ASC";
       $mysql_query_run=$connection->query($query);
       $count=$mysql_query_run->num_rows;
       mysqli_close($connection);
@@ -40,8 +40,8 @@ if (islogin() || $debug)
     <div class="pull-right"><h3>Total number of teams:<?php echo "$count"; ?></h3></div>
 
     <div class="btn-group">
-    <a href="#" class="btn btn-info" role="button">Back</a>
-    <a href="#" class="btn btn-info" role="button">Logout</a>
+    <!--<a href="#" class="btn btn-info" role="button">Back</a>
+    <a href="#" class="btn btn-info" role="button">Logout</a>-->
     <div class="container">
      <table class="table table-striped">
       <thead>
@@ -56,7 +56,14 @@ if (islogin() || $debug)
         while ($rows=$mysql_query_run->fetch_array())
         {
         ?>
-        <tr><td><?php echo "$rows[0]";?></td><td><?php echo "$rows[1]";?></td></tr>
+        <tr
+        <?php
+          if ($rows[0]==$teamid)
+          {
+            echo 'class="alert alert-info"';
+          }
+         ?>
+        ><td><?php echo "$rows[1]";?></td><td><?php echo "$rows[2]";?></td></tr>
         <?php
         }
       ?>
