@@ -67,7 +67,15 @@
                 var_dump($startTime);
                 var_dump($endTime);
               }
-              if ($time >= $startTime && $time <= $endTime)
+
+              if ($endTime <= $time)
+              {
+                ?>
+                <li><a href="#"><?php echo "Times Up";?></a></li>
+                <li><a href="#">Event over</a></li>
+                <?php
+              }
+              elseif ($time >= $startTime && $time <= $endTime)
               {
                 $dstart = date_format($endTime,"Y-m-d H:i:s");  // converting startdate
                 $cdate = date_format(date_create(date("Y-m-d H:i:s")),"Y-m-d H:i:s");    //current datetime
@@ -92,13 +100,6 @@
                 ?>
                 <li><a href="#"><?php timer($duration->h,$duration->i,$duration->s,"newtime",0);?></a></li>
                 <li><a href="#">Time left for the event to Start</a></li>
-                <?php
-              }
-              elseif ($endTime <= $time)
-              {
-                ?>
-                <li><a href="#"><?php echo "Times Up";?></a></li>
-                <li><a href="#">Event over</a></li>
                 <?php
               }
 
