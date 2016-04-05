@@ -11,10 +11,10 @@
 	#definig the team
 
 #only accessable if logged in
-if (islogin()) 
+if (islogin())
 {
 	# if true then show the page
-	?>
+?>
 <style>
 .jumbotron{
 	background: #2d2d30;
@@ -28,7 +28,7 @@ if (islogin())
 	color:white;
 }
 </style>
-	
+
 <div class="jumbotron text-center">
 <h1>GAME RULES:</h1>
 
@@ -38,9 +38,16 @@ if (islogin())
   <li class="list-group-item list-group-item-default"></li>
   <li class="list-group-item list-group-item-default"></li>
 </ol>
-<a href="#" class="btn btn-success" role="button">I Agree</a>
+<?php
+ 	if ($running || $debug)
+	{
+ 		?>
+<a href="question.php?qno=0&sum=cfcd208495d565ef66e7dff9f98764da" class="btn btn-success" role="button">Take me to the event</a>
+		<?php
+ 	}
+?>
 </div>
-	<?php
+<?php
 }
 else
 {

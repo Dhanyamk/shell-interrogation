@@ -1,6 +1,6 @@
 <?php
 	// question.php
-	
+
 	require 'core.php';
 
 	$title = "Questions";
@@ -10,33 +10,36 @@
 
 	//content of this page
 //continue this page iff team is logged in
-if (!islogin()) 
+if (!islogin())
 {
 	header('location:'.'login_team.php?msg=1');
-} 
+}
 	$qno=@$_GET['qno'];			// current question no
 	$sum=@$_GET['sum'];			// check sum for question no
 	$key=@$_POST['key'];		// to get the input from the form
 
 	$checksum=md5($qno);
-	
-	if ($debug) 
+	$key_not_match=false;    // to check wether key match or not
+
+	if ($debug)
  	{
     	var_dump($qno);
     	var_dump($sum);
   		var_dump($checksum);
-  	}
+			var_dump($key);
+  }
 
-if ($sum==$checksum || $debug) 
+if ($sum==$checksum || $debug)
 {
 	#then get and display the questions
 	$ques=new ques;
 	$score=new score;
 	$ques->get_ques($qno);
-	if (isset($key) && !empty($key)) 
+	//$ques->get_ques($qno);
+	if (isset($key) && !empty($key))
 	{
 		// if the key is set then manupulate it
-		if ($ques->match_key($key)) 
+		if ($ques->match_key($key))
 		{
 			$score->correct_submition($teamid);
 			$qno=$qno+1;
@@ -46,7 +49,13 @@ if ($sum==$checksum || $debug)
 		else
 		{
 			$score->wrong_submition($teamid);
+			$key_not_match=true;
 		}
+	}
+
+	if ($debug)
+	{
+		var_dump($key_not_match);
 	}
 ?>
 
@@ -77,7 +86,7 @@ if ($sum==$checksum || $debug)
    	<form class="form-signin" action="<?php echo $current_file."?qno=$qno&sum=$sum"; ?>" method="POST" enctype="multipart/form-data" target="">
         <!--<h2 class="form-signin-heading">Please Login in</h2>-->
         <label for="text" class="sr-only">Key or Flag</label>
-        <input type="text" id="name" class="form-control" placeholder="Key or Flag" required autofocus>
+        <input type="text" name="key" class="form-control" <?php if($key_not_match){ echo "id=\"inputError1\"";} ?> placeholder="Key or Flag" required autofocus>
         <!-- not required
         <div class="checkbox">
           <label>

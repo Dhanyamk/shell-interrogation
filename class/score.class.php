@@ -38,7 +38,7 @@
 
 		function wrong_submition($uid)
 		{
-			get_score($uid);
+			$this->get_score($uid);
 
 			$time=date('H:i:s');				// to get surrent system time
 			$date=date_create($time);		// to convert it into date formate
@@ -60,7 +60,7 @@
 
 		function correct_submition($uid)
 		{
-			get_score($uid);
+			$this->get_score($uid);
 
 			$time=date('H:i:s');				// to get surrent system time
 			$date=date_create($time);		// to convert it into date formate

@@ -71,8 +71,8 @@
               if ($endTime <= $time)
               {
                 ?>
-                <li><a href="#"><?php echo "Times Up";?></a></li>
-                <li><a href="#">Event over</a></li>
+                <li><a href=""><?php echo "Times Up";?></a></li>
+                <li><a href="">Event over</a></li>
                 <?php
               }
               elseif ($time >= $startTime && $time <= $endTime)
@@ -84,8 +84,8 @@
                 $sec=(($duration->h*60*60)+($duration->i*60)+($duration->s));   // calculating time left
                 refresh($sec);    // to refresh current page
                 ?>
-                <li><a href="#"><?php timer($duration->h,$duration->i,$duration->s,"newtime",0);?></a></li>
-                <li><a href="#">Time left for the event to End</a></li>
+                <li><a href=""><?php timer($duration->h,$duration->i,$duration->s,"newtime",0);?></a></li>
+                <li><a href="">Time left for the event to End</a></li>
                 <?php
               }
               elseif($time <= $startTime)
@@ -98,8 +98,8 @@
                 $sec=(($duration->h*60*60)+($duration->i*60)+($duration->s));   // calculating time left
                 refresh($sec);    // to refresh current page
                 ?>
-                <li><a href="#"><?php timer($duration->h,$duration->i,$duration->s,"newtime",0);?></a></li>
-                <li><a href="#">Time left for the event to Start</a></li>
+                <li><a href=""><?php timer($duration->h,$duration->i,$duration->s,"newtime",0);?></a></li>
+                <li><a href="">Time left for the event to Start</a></li>
                 <?php
               }
 

@@ -38,10 +38,10 @@ $http_referer=@$_SERVER['HTTP_REFERER'];
 // time for the event
 
 	//Start time of the contest in the format 'YYYY-MM-DD HH:MM:SS'
-	$startTime = date_create('2016-04-04 23:14:00');
+	$startTime = date_create('2016-04-05 19:22:30');
 
 	//End time of the contest in the format 'YYYY-MM-DD HH:MM:SS'
-	$endTime = date_create('2016-04-05 23:14:30');
+	$endTime = date_create('2016-04-05 19:23:00');
 
 	//Interval between refreshes of the leaderboard (milliseconds)
 	$getLeaderInterval = 10000;

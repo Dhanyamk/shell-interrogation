@@ -53,7 +53,6 @@ if (isset($code) && !empty($code) && $code==$ccode)
 		`qid` int(10) unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'hold unique id for question reference',
 		  `user` varchar(200) NOT NULL COMMENT 'ssh username',
 		  `key` varchar(65) NOT NULL COMMENT 'key to next level',
-		  `title` varchar(100) COMMENT 'title of the question',
 		  `descr` longtext NOT NULL COMMENT 'description of the question',
 		  `hint` varchar(100) COMMENT 'piroity of the post'
 		) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1 COMMENT='question table';";
