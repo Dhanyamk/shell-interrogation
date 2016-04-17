@@ -11,6 +11,9 @@
 	//content of this page
 	#definig the team
 
+	#refresh the page in every 10 sec
+	refresh('10');
+
 #only accessable if logged in
 if (islogin() || $debug)
 {
