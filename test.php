@@ -1,4 +1,5 @@
 <?php
+	/*
 	$dated=date('H:i:s');
 	$time=date('H:i:s');
 	echo $dated."</br>";
@@ -25,4 +26,12 @@
 	echo $since_start->h.' hours<br>';
 	echo $since_start->i.' minutes<br>';
 	echo $since_start->s.' seconds<br>';
+	*/
+
+	for ($i=0; $i <= 20 ; $i++)
+	{
+		$user='user'.$i;
+		$key=md5($user);
+		echo "$user = $key </br>";
+	}
 ?>

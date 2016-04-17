@@ -1,5 +1,8 @@
 <?php
 	// ers.mod.php     ers==error_smart ;)
+if ($runnig)
+{
+  // if event running then show the this page
 ?>
 
 <!--<style>
@@ -19,5 +22,13 @@ font-family:'Pacifico',cursive;
 <h3>DON'T BE TOOOO SMART HA!!</h3>
 
 <img src="image/images1.jpeg"/>
+
+<?php
+}
+else
+{
+  header('location:'.'score.php');
+}
+ ?>
 
 </div>

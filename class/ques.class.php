@@ -1,18 +1,18 @@
 <?php
 	// ques.class.php
-	
+
 	/*
 		question class to fetch question from the database also to add questions in it
-	
+
 		It fetch the question based on give qusetion number i.e question id
 	*/
-	class ques 
+	class ques
 	{
-		
+
 		public $qid; 		// question id i.e question number
 		public $user;		// ssh username
 		private $key;		// key to next level
-		public $descr;		// question description 
+		public $descr;		// question description
 		public $hint; 		// hint related to that question
 
 		/*
@@ -27,16 +27,17 @@
 		{
 			// opening the database connection
 			include 'dbms/dbms_imp.php';
-			
+
 			$this->qid=$qid;
 			$result=$connection->query("SELECT * FROM `ques` WHERE `qid`='$qid'");
             $rows=$result->fetch_array();
             $this->user=$rows[1];
             $this->key=$rows[2];
-            $this->descr=$rows[3];
-            $this->hint=$rows[4];
+						$this->title=$rows[3];
+            $this->descr=$rows[4];
+            $this->hint=$rows[5];
 
-            //close the database connection 
+            //close the database connection
             mysqli_close($connection);
 		}
 
@@ -54,11 +55,11 @@
 
 			include 'dbms/dbms_imp.php';
 
-			$insert_query="INSERT INTO `ques` (`qid`, `user`, `key`, `descr`, `hint`) 
+			$insert_query="INSERT INTO `ques` (`qid`, `user`, `key`, `descr`, `hint`)
 				VALUES ('','$this->user','this->key','$this->descr','$this->hint')";
-			
+
 			$mysql_query_run=$connection->query($insert_query);
-			
+
 			mysqli_close($connection);
 		}
 

@@ -14,6 +14,14 @@ if (!islogin())
 {
 	header('location:'.'login_team.php?msg=1');
 }
+if (!$debug)
+{
+	if (!$running)
+	{
+		header('location:'.'lp.php');
+	}
+}
+
 	$qno=@$_GET['qno'];			// current question no
 	$sum=@$_GET['sum'];			// check sum for question no
 	$key=@$_POST['key'];		// to get the input from the form
@@ -56,6 +64,8 @@ if ($sum==$checksum || $debug)
 	if ($debug)
 	{
 		var_dump($key_not_match);
+		echo "$n=" ;var_dump($n);
+		var_dump(((int)$qno));
 	}
 ?>
 
@@ -72,9 +82,11 @@ if ($sum==$checksum || $debug)
  	<div class="center-block" style="width:300px;"><h1>SHELL QUERY</h1></div>
   	<div class="jumbotron text-center">
   		<h2>Question <?php echo "$qno";?></h2>
+			<h3><?php echo "$ques->title";?></h3>
   		<p><?php echo "$ques->descr";?></p>
   	</div>
-  	<div class="center-block" style="width:340px;"><b>Break the barrier to reach the next stage..!!</b></div>
+  	<div class="center-block" style="width:340px;"><b>Break the barrier to reach the next stage..!!</b>
+		</div>
 	<br/><br/>
   	<!--<div class="form-group">
   		<label for="comment">Answer:</label>
@@ -82,8 +94,22 @@ if ($sum==$checksum || $debug)
 	</div>
   	<a href="#" class="btn btn-info" role="button">NEXT</a>
    	<a href="#" class="btn btn-info" role="button">Know your position</a>-->
+<?php
+		// if the question already solved then don't show the form for submittion of the answer
+		if (((int)$qno) < $n)
+		{
+  		?>
+			<div class="center-block" style="width:340px;"><h3>You Nailed it </h3></br></br>
+			<a href="<?php $sum=md5($n);echo "question.php?qno=$n&sum=$sum";?>" class="btn btn-info" role="button">Go to latest Question</a>
+			</div>
+			<?php
+  	}
+		else
+		{
+  		//show the form to take the input
+?>
 
-   	<form class="form-signin" action="<?php echo $current_file."?qno=$qno&sum=$sum"; ?>" method="POST" enctype="multipart/form-data" target="">
+		<form class="form-signin" action="<?php echo $current_file."?qno=$qno&sum=$sum"; ?>" method="POST" enctype="multipart/form-data" target="">
         <!--<h2 class="form-signin-heading">Please Login in</h2>-->
         <label for="text" class="sr-only">Key or Flag</label>
         <input type="text" name="key" class="form-control" <?php if($key_not_match){ echo "id=\"inputError1\"";} ?> placeholder="Key or Flag" required autofocus>
@@ -98,6 +124,7 @@ if ($sum==$checksum || $debug)
 
 </div>
 <?php
+		}
 }
 else
 {

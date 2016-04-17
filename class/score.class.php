@@ -12,7 +12,7 @@
 		public $sid;						// primary index score id
 		public $iid;						// userid or teamid
 		public $score; 					// user or team score
-		private $time_updated; 	// time last answer updated
+		public $time_updated; 	// time last answer updated
 		public $plenty;					// number of wrong answer submitted
 		public $tscore;					// total effective score of the user
 
@@ -44,13 +44,13 @@
 			$date=date_create($time);		// to convert it into date formate
 
 			$this->time_updated=date_format($date,"H:i:s");
-
+			//$this->time_updated=date('Y-m-d H:i:s');
 			$this->plenty=$this->plenty-1;
 			$this->tscore=$this->tscore-1;
 
 			include 'dbms/dbms_imp.php';
 
-			$update_query="UPDATE `score` SET `ltime`='$this->time_updated',`plenty`='$this->plenty' WHERE `sid` = '$this->sid'";
+			$update_query="UPDATE `score` SET `time_updated`='$this->time_updated',`plenty`='$this->plenty', `tscore`='$this->tscore' WHERE `sid` = '$this->sid'";
 
 			$mysql_query_run=$connection->query($update_query);
 
@@ -66,13 +66,13 @@
 			$date=date_create($time);		// to convert it into date formate
 
 			$this->time_updated=date_format($date,"H:i:s");
-
+			//$this->time_updated=date('Y-m-d H:i:s');
 			$this->score=$this->score+10;
 			$this->tscore=$this->tscore+10;
 
 			include 'dbms/dbms_imp.php';
 
-			$update_query="UPDATE `score` SET `score`='$this->score',`ltime`='$this->time_updated' WHERE `sid` = '$this->sid'";
+			$update_query="UPDATE `score` SET `score`='$this->score',`time_updated`='$this->time_updated',`tscore`='$this->tscore' WHERE `sid` = '$this->sid'";
 
 			$mysql_query_run=$connection->query($update_query);
 
@@ -80,7 +80,7 @@
             mysqli_close($connection);
 		}
 
-		function add_entry_score($uid)
+		function add_entry_score($uid)		// to add blank entry of the score
 		{
 			$this->iid=$uid;
 
@@ -92,20 +92,26 @@
 			$date=date_create($time);		// to convert it into date formate
 
 			$this->time_updated=date_format($date,"H:i:s");
-
+			//$this->time_updated=date('Y-m-d H:i:s');
+			if (true)
+			{
+				var_dump($this);
+			}
 			include 'dbms/dbms_imp.php';
 
-			$insert_query="INSERT INTO `score` (`sid`, `iid`, `score`, `time_updated`,`plenty`)
-				VALUES ('','$this->iid',$this->score','$this->time_updated','$this->plenty')";
+			$insert_query="INSERT INTO `score` (`sid`, `iid`, `score`, `time_updated`, `plenty`,`tscore`)
+				VALUES ('','$this->iid','$this->score','$this->time_updated','$this->plenty','$this->tscore')";
 
 			$mysql_query_run=$connection->query($insert_query);
-			mysqli_close($connection);
+
 			if(!$mysql_query_run)
 			{
 				// error occurs
-				echo "<br>Error in creating team".mysqli_error($connection);
+				echo "<br>Error in creating score</br>".mysqli_error($connection);
+				mysqli_close($connection);
 				return false;
 			}
+			mysqli_close($connection);
 			return true;
 		}
 	}

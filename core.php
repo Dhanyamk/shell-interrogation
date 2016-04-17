@@ -1,4 +1,7 @@
 <?php
+// for debuging
+	$debug=true;
+
 //ini_set('display_errors','0');	//to be set active when site goes live
 ini_set('date.timezone','Asia/Kolkata');
 // core file must be include in all pages
@@ -12,6 +15,7 @@ include_once 'functions/validate.func.php';
 include_once 'functions/netutralize.func.php';
 include_once 'functions/refresh.func.php';
 include_once 'functions/timer1.func.php';
+include_once 'functions/check_db_entry.func.php';
 
 
 
@@ -21,9 +25,6 @@ spl_autoload_register(function ($class)
 });
 
 ob_start();
-
-// for debuging
-	$debug=true;
 
 session_start();
 
@@ -38,10 +39,10 @@ $http_referer=@$_SERVER['HTTP_REFERER'];
 // time for the event
 
 	//Start time of the contest in the format 'YYYY-MM-DD HH:MM:SS'
-	$startTime = date_create('2016-04-05 19:22:30');
+	$startTime = date_create('2016-04-17 16:18:00');
 
 	//End time of the contest in the format 'YYYY-MM-DD HH:MM:SS'
-	$endTime = date_create('2016-04-05 19:23:00');
+	$endTime = date_create('2016-04-17 16:20:00');
 
 	//Interval between refreshes of the leaderboard (milliseconds)
 	$getLeaderInterval = 10000;

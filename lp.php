@@ -42,14 +42,14 @@ if (islogin())
  	if ($running || $debug)
 	{
  		?>
-<a href="question.php?qno=0&sum=cfcd208495d565ef66e7dff9f98764da" class="btn btn-success" role="button">Take me to the event</a>
+<a href="addscore.php" class="btn btn-success" role="button">Take me to the event</a>
 		<?php
  	}
 ?>
 </div>
 <?php
 }
-else
+else  					//if not loggined the page to login
 {
 	header('location:'.'login_team.php?msg=1');
 }
