@@ -1,7 +1,10 @@
 <?php
 	//login.php
   require 'core.php';
-
+if (islogin())
+{
+  header('location:'.'lp.php');
+}
 	$title = "Login";
 	# loading all display modules
 	require 'display/head.mod.php';		// <head> for the page

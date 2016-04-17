@@ -1,7 +1,11 @@
 <?php
 	//login.php
   require 'core.php';
-
+  if (islogin())
+  {
+    header('location:'.'lp.php');
+  }
+  
   $flag=@$_GET['msg'];
 
 	$title = "Login";
