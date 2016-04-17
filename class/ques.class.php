@@ -56,7 +56,7 @@
 			include 'dbms/dbms_imp.php';
 
 			$insert_query="INSERT INTO `ques` (`qid`, `user`, `key`, `descr`, `hint`)
-				VALUES ('','$this->user','this->key','$this->descr','$this->hint')";
+				VALUES ('','$this->user','$this->key','$this->descr','$this->hint')";
 
 			$mysql_query_run=$connection->query($insert_query);
 
