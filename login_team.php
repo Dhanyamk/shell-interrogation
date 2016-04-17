@@ -14,15 +14,15 @@
   $name=@$_POST['tname'];
   $pwd=@$_POST['tpwd'];
 
-  if ($debug) 
+  if ($debug)
   {
     var_dump($name);
     var_dump($pwd);
   }
 
-  if (isset($name) && isset($pwd)) 
+  if (isset($name) && isset($pwd))
   {
-    if (!empty($name) && !empty($pwd)) 
+    if (!empty($name) && !empty($pwd))
     {
       include 'dbms/dbms_imp.php';
       $name=netutralize($name,$connection);
@@ -30,14 +30,14 @@
       $ateam=new team;
       if($ateam->team_login($name,$pwd))
       {
-        header('location:'.'lp.php');
+        header('location:'.'addscore.php');
       }
       else
       {
         echo "team details are wrong";
       }
-    } 
-    else 
+    }
+    else
     {
       echo "team details are required";
     }
@@ -45,7 +45,7 @@
 
 	?>
 	<link href="display/signin.css" rel="stylesheet">
-	
+
 	<div class="container">
 
       <div class="jumbotron text-center">
@@ -53,10 +53,10 @@
           if ($flag==1)
           {
             echo "<h2>Please Login to Continue</h2>";
-          } 
-          elseif ($flag==2) 
+          }
+          elseif ($flag==2)
           {
-            
+
           }
         ?>
       </div>
@@ -73,6 +73,8 @@
           </label>
         </div>-->
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login in</button>
+        <br /><br />
+        <a href="login.php" class="btn btn-lg btn-primary btn-block" role="button">Team's Registration</a>
       </form>
 
     </div> <!-- /container -->

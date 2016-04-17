@@ -12,5 +12,5 @@
       $score->add_entry_score($teamid);
     }
     // redirect to questions page
-    header('location:'.'question.php?qno=0&sum=cfcd208495d565ef66e7dff9f98764da');
+    header('location:'.'lp.php');
 ?>

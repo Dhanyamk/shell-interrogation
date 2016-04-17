@@ -42,7 +42,7 @@ if (islogin())
  	if ($running || $debug)
 	{
  		?>
-<a href="addscore.php" class="btn btn-success" role="button">Take me to the event</a>
+<a href="question.php?qno=0&sum=cfcd208495d565ef66e7dff9f98764da" class="btn btn-success" role="button">Take me to the event</a>
 		<?php
  	}
 ?>
