@@ -27,7 +27,7 @@
               if (islogin())
               {
                 ?>
-            <li class="active"><a href="#"><?php echo "$team->tname";?></a></li>
+            <li class="active"><a href="lp.php"><?php echo "$team->tname";?></a></li>
                 <?php
               }
             ?>
