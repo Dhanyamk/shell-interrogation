@@ -33,7 +33,7 @@ if (islogin())
 <h1>GAME RULES:</h1>
 
 <ol class="list-group">
-  <li class="list-group-item list-group-item-default">As you solve the questions the previous questions are added into your question tab</li>
+  <li >As you solve the questions the previous questions are added into your question tab</li>
   <li class="list-group-item list-group-item-default"></li>
   <li class="list-group-item list-group-item-default"></li>
   <li class="list-group-item list-group-item-default"></li>
