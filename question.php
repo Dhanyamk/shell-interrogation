@@ -99,7 +99,7 @@ if ($sum==$checksum || $debug)
 		if (((int)$qno) < $n)
 		{
   		?>
-			<div class="center-block" style="width:340px;"><h3>You Nailed it </h3></br></br>
+			<div class="jumbotron text-center"><h3>You Nailed it </h3></br></br>
 			<a href="<?php $sum=md5($n);echo "question.php?qno=$n&sum=$sum";?>" class="btn btn-info" role="button">Go to latest Question</a>
 			</div>
 			<?php
@@ -121,10 +121,9 @@ if ($sum==$checksum || $debug)
         </div>-->
     	<button class="btn btn-info btn-primary btn-block" type="submit">Take me to next Question</button>
 	</form>
-
+<?php } ?> 
 </div>
 <?php
-		}
 }
 else
 {

@@ -49,7 +49,7 @@ if (islogin())
   <li >Secondly, if there is no man page, the command might be a shell built-in. In that case use the “help X” command. E.g. help cd (only work in few cases)</li>
   <li >Lastly, if you are still stuck, call us we have a hint for you ;)</li>
 	<br />
-	<li >You’re ready to start! Wait for the Game to start ;)<br /><h4> Good luck!</h4></li>
+	<li >You’re ready to start! <br /> <?php if ($running){echo "Game is running GO GO GO GO!";} else {echo "Wait for the Game to start";}	?> ;)<br /><h4> Good luck!</h4></li>
 </ol>
 <?php
  	if ($running || $debug)

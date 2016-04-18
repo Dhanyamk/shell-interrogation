@@ -24,7 +24,7 @@ if (islogin())
   $user2=false;
   $uid1=0;
   $uid2=0;
-
+  $flag1=$flag2=$flag3=NULL;
   if ($debug)
   {
     var_dump($usn1);
@@ -49,6 +49,7 @@ if (islogin())
     else
     {
       echo "Player 1 details are required";
+      $flag1="Player 1 details are required";
     }
   }
 
@@ -66,6 +67,7 @@ if (islogin())
     else
     {
       echo "Player 2 details are required";
+      $flag2="Player 2 details are required";
     }
   }
 
@@ -74,11 +76,19 @@ if (islogin())
     include 'dbms/dbms_imp.php';
     $tname=netutralize($tname,$connection);
     mysqli_close($connection);
-    $team = new team;
-    $sucess = $team->add_team($tname,$tpwd,$uid1,$uid2);
-    if ($sucess)
+    if (read_db_entry($tname,'tname','team'))
     {
-      header('location:'.'login_team.php?msg=1');
+      $team = new team;
+      $sucess = $team->add_team($tname,$tpwd,$uid1,$uid2);
+      if ($sucess)
+      {
+        header('location:'.'login_team.php?msg=1');
+      }
+    }
+    else
+    {
+      echo "Team already exist try some other name";
+      $flag3="Team already exist try some other name";
     }
   }
 
@@ -95,22 +105,25 @@ if (islogin())
   <p>Enter your team member's infomation in the forms provided below</p>
   <form class="form-signin" action="<?php echo $current_file; ?>" method="POST" enctype="multipart/form-data" target="">
     <h2 class="form-signin-heading">Player 1:</h2>
-    <div class="form-group">
+    <div class="form-group<?php $retvar=(isset($flag1) && !empty($flag1)) ? 'has-error':''; echo "$retvar"?>" >
+      <?php  $retvar=(isset($flag1)) ? ".$flag1.": ""; echo "$retvar";?>
       <label for="USN" class="sr-only">Player 1 USN:</label>
       <input type="name" id="usn1" name="usn1" class="form-control" placeholder="Player 1 USN" required autofocus>
       <label for="inputPassword" class="sr-only">Player 1 Password:</label>
       <input type="password" class="form-control" id="pwd1" name="pwd1" placeholder="Player 1 Password" required>
     </div>
     <h2 class="form-signin-heading">Player 2:</h2>
-    <div class="form-group" >
+    <div class="form-group<?php (isset($flag2)) ? 'has-error':'';?>">
+      <?php (isset($flag1)) ? "$flag2":'';?>
       <label for="USN" class="sr-only">Player 2 USN:</label>
       <input type="text" id="usn2" name="usn2" class="form-control" placeholder="Player 2 USN" required autofocus>
       <label for="inputPassword" class="sr-only">Player 2 Password:</label>
       <input type="password" class="form-control" id="pwd2" name="pwd2" placeholder="Player 2 Password" required>
     </div>
     <br/><br/>
-    <div class="form-group">
-      <h2 class="form-signin-heading">Team Details:</h2>
+    <h2 class="form-signin-heading">Team Details:</h2>
+    <div class="form-group <?php (isset($flag3)) ? 'has-error':'';?>">
+      <?php (isset($flag3)) ? "$flag3":'';?>
       <p>Set your team name and password</p>
       <label for="USN" class="sr-only">Team Name</label>
       <input type="name" class="form-control" id="name" name="tname" placeholder="Team Name" required autofocus>
@@ -123,7 +136,14 @@ if (islogin())
 </div>
 	<?php
 
-	require 'display/footer.mod.php';	// <footer> for the page
+  if ($debug)
+  {
+    var_dump($flag1);
+    var_dump($flag2);
+    var_dump($flag3);
+  }
+
+  require 'display/footer.mod.php';	// <footer> for the page
 
 	require 'display/script.mod.php';	// script depending on page requirment
 	require 'display/eop.mod.php';		// end of page

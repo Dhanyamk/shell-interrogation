@@ -1,6 +1,6 @@
 <?php
 // for debuging
-	$debug=false;
+	$debug=true;
 
 //ini_set('display_errors','0');	//to be set active when site goes live
 ini_set('date.timezone','Asia/Kolkata');
@@ -42,7 +42,7 @@ $http_referer=@$_SERVER['HTTP_REFERER'];
 	$startTime = date_create('2016-04-17 17:00:00');
 
 	//End time of the contest in the format 'YYYY-MM-DD HH:MM:SS'
-	$endTime = date_create('2016-04-17 18:00:00');
+	$endTime = date_create('2016-04-18 18:00:00');
 
 	//Interval between refreshes of the leaderboard (milliseconds)
 	$getLeaderInterval = 10000;

@@ -5,7 +5,7 @@
   {
     header('location:'.'lp.php');
   }
-  
+
   $flag=@$_GET['msg'];
 
 	$title = "Login";
@@ -38,12 +38,12 @@
       }
       else
       {
-        echo "team details are wrong";
+        $flags1="team details are wrong";
       }
     }
     else
     {
-      echo "team details are required";
+      $flags2="team details are required";
     }
   }
 
@@ -64,8 +64,9 @@
           }
         ?>
       </div>
-      <form class="form-signin" action="<?php echo $current_file; ?>" method="POST" enctype="multipart/form-data" target="">
+      <form class="form-signin<?php (isset($flags1 || $flags2)) ? 'has-error':'';?>" action="<?php echo $current_file; ?>" method="POST" enctype="multipart/form-data" target="">
         <h2 class="form-signin-heading">Please Login in</h2>
+        <?php  (condition) ? a : b ;?>
         <label for="inputEmail" class="sr-only">Team Name</label>
         <input type="name" id="name" class="form-control" name="tname" placeholder="Team Name" required autofocus>
         <label for="inputPassword" class="sr-only">Team Password</label>
