@@ -6,6 +6,6 @@
 
 	<footer class="footer">
       <div class="container">
-        <p class="text-muted">under copyleft licence</p>
+        <p class="text-muted">Any Problem It Report to Coordinator</p>
       </div>
     </footer>

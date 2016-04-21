@@ -55,9 +55,14 @@ if (islogin() || $debug)
       </thead>
       <tbody>
       <?php
-
+				$player = new team;
+				$player1 = new user;
+				$player2 = new user;
         while ($rows=$mysql_query_run->fetch_array())
         {
+					$player->get_team($rows[0]);
+					$player1->get_user($player->uid1);
+					$player2->get_user($player->uid2);
         ?>
         <tr
         <?php
@@ -66,7 +71,7 @@ if (islogin() || $debug)
             echo 'class="alert alert-info"';
           }
          ?>
-        ><td><?php echo "$rows[1]";?></td><td><?php echo "$rows[2]";?></td></tr>
+        ><td><?php echo "$rows[1]  \t  ($player1->fname , $player2->fname)";?></td><td><?php echo "$rows[2]";?></td></tr>
         <?php
         }
       ?>

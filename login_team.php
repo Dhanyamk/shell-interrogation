@@ -17,6 +17,7 @@
 
   $name=@$_POST['tname'];
   $pwd=@$_POST['tpwd'];
+  $flags1=$flags2=NULL;
 
   if ($debug)
   {
@@ -38,7 +39,7 @@
       }
       else
       {
-        $flags1="team details are wrong";
+        $flags1="Wrong combination of Team name and Password";
       }
     }
     else
@@ -64,9 +65,9 @@
           }
         ?>
       </div>
-      <form class="form-signin<?php (isset($flags1 || $flags2)) ? 'has-error':'';?>" action="<?php echo $current_file; ?>" method="POST" enctype="multipart/form-data" target="">
+      <form class="form-signin <?php $retvar=(isset($flags1) && !empty($flags1)) ? 'has-error':''; echo "$retvar"?>" action="<?php echo $current_file; ?>" method="POST" enctype="multipart/form-data" target="">
         <h2 class="form-signin-heading">Please Login in</h2>
-        <?php  (condition) ? a : b ;?>
+        <?php  $retvar=(isset($flags1)) ? "$flags1": ""; echo "$retvar";?>
         <label for="inputEmail" class="sr-only">Team Name</label>
         <input type="name" id="name" class="form-control" name="tname" placeholder="Team Name" required autofocus>
         <label for="inputPassword" class="sr-only">Team Password</label>
@@ -78,7 +79,7 @@
           </label>
         </div>-->
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login in</button>
-        <br /><br />
+        <div class="jumbotron text-center">-Or-</div>
         <a href="login.php" class="btn btn-lg btn-primary btn-block" role="button">Team's Registration</a>
       </form>
 
