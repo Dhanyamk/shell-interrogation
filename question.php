@@ -26,6 +26,13 @@ if (!$debug)
 	$sum=@$_GET['sum'];			// check sum for question no
 	$key=@$_POST['key'];		// to get the input from the form
 
+	# netutralize the input
+	include 'dbms/dbms_imp.php';
+	$qno=netutralize($qno,$connection);
+	$sum=netutralize($sum,$connection);
+	$key=netutralize($key,$connection);
+	mysqli_close($connection);
+
 	$checksum=md5($qno);
 	$key_not_match=false;    // to check wether key match or not
 
@@ -121,7 +128,7 @@ if ($sum==$checksum || $debug)
         </div>-->
     	<button class="btn btn-info btn-primary btn-block" type="submit">Take me to next Question</button>
 	</form>
-<?php } ?> 
+<?php } ?>
 </div>
 <?php
 }

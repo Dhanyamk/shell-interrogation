@@ -31,6 +31,7 @@
     {
       include 'dbms/dbms_imp.php';
       $name=netutralize($name,$connection);
+      $pwd=netutralize($pwd,$connection);
       mysqli_close($connection);
       $ateam=new team;
       if($ateam->team_login($name,$pwd))
