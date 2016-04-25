@@ -11,7 +11,7 @@
 		private $tpwd;		// team password
 		public $uid1;		// user1 id
 		public $uid2;		// user2 id
-
+		public $ip;			// user ip address
 		public $user1;		// user class var to hold user1 data
 		public $user2; 		// user class var to hold user2 data
 
@@ -54,10 +54,10 @@
 			$this->uid2=$row[4];
 
 			// get the user details
-			$user1= new user;
-			$user1->get_user($this->uid1);
-			$user2= new user;
-			$user2->get_user($this->uid2);
+			$this->user1= new user;
+			$this->user1->get_user($this->uid1);
+			$this->user2= new user;
+			$this->user2->get_user($this->uid2);
 		}
 
 		function team_login($name,$pwd1)
@@ -74,6 +74,13 @@
 			if($pwd==$this->tpwd)
 			{
 				$team=$this->tid;
+				$ip=$_SERVER['REMOTE_ADDR'];
+				$port=$_SERVER['REMOTE_PORT'];
+				$this->ip=$ip.':'.$port;
+				include 'dbms/dbms_imp.php';
+				$update_query="UPDATE `team` SET `ip`='$this->ip' WHERE `tid`='$this->tid'";
+				$mysql_query_run=$connection->query($update_query);
+
 				$_SESSION['team']=$team;
 				$GLOBALS[$team]=$_SESSION['team'];
 				return true;
