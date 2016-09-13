@@ -60,8 +60,8 @@ if (islogin())
  	}
 	else
 	{
-		echo "<p>Seems Game is not started yet Check top right corner for the remining time and notifications.
-		<br /> You will get a link here. When the Games starts.<p>";
+		echo "<p>Seems Game is not started yet or already ended Check top right corner for the remining time and notifications.
+		<br /> You will get a link here. When the Games starts or running .<p>";
 	}
 ?>
 </div>

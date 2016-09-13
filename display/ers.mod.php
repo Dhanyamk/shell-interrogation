@@ -1,6 +1,6 @@
 <?php
 	// ers.mod.php     ers==error_smart ;)
-if ($runnig)
+if ($running)
 {
   // if event running then show the this page
 ?>
