@@ -5,7 +5,7 @@
   {
     header('location:'.'lp.php');
   }
-  
+
   $flag=@$_GET['msg'];
 
 	$title = "Login";
@@ -17,6 +17,7 @@
 
   $name=@$_POST['tname'];
   $pwd=@$_POST['tpwd'];
+  $flags1=$flags2=NULL;
 
   if ($debug)
   {
@@ -30,6 +31,7 @@
     {
       include 'dbms/dbms_imp.php';
       $name=netutralize($name,$connection);
+      $pwd=netutralize($pwd,$connection);
       mysqli_close($connection);
       $ateam=new team;
       if($ateam->team_login($name,$pwd))
@@ -38,12 +40,12 @@
       }
       else
       {
-        echo "team details are wrong";
+        $flags1="Wrong combination of Team name and Password";
       }
     }
     else
     {
-      echo "team details are required";
+      $flags2="team details are required";
     }
   }
 
@@ -64,8 +66,9 @@
           }
         ?>
       </div>
-      <form class="form-signin" action="<?php echo $current_file; ?>" method="POST" enctype="multipart/form-data" target="">
+      <form class="form-signin <?php $retvar=(isset($flags1) && !empty($flags1)) ? 'has-error':''; echo "$retvar"?>" action="<?php echo $current_file; ?>" method="POST" enctype="multipart/form-data" target="">
         <h2 class="form-signin-heading">Please Login in</h2>
+        <?php  $retvar=(isset($flags1)) ? "$flags1": ""; echo "$retvar";?>
         <label for="inputEmail" class="sr-only">Team Name</label>
         <input type="name" id="name" class="form-control" name="tname" placeholder="Team Name" required autofocus>
         <label for="inputPassword" class="sr-only">Team Password</label>
@@ -77,7 +80,7 @@
           </label>
         </div>-->
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login in</button>
-        <br /><br />
+        <div class="jumbotron text-center">-Or-</div>
         <a href="login.php" class="btn btn-lg btn-primary btn-block" role="button">Team's Registration</a>
       </form>
 
